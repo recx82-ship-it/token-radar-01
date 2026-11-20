@@ -1,0 +1,116 @@
+/* Token Launch Radar — dark radar-room theme. No network, no framework. */
+:root {
+  --bg: #0a0f14;
+  --panel: #101922;
+  --panel2: #0d141c;
+  --line: #1e2c3a;
+  --text: #dbe7ef;
+  --muted: #8ba0b0;
+  --faint: #5f7384;
+  --green: #34d399;
+  --amber: #f5b544;
+  --red: #f4707a;
+  --blue: #5eb2f2;
+  --chip: #16222e;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  padding: 0 22px 40px;
+}
+a { color: var(--green); }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { position: static; display: block; padding: 8px; background: var(--green); color: #06110c; }
+.top {
+  display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; justify-content: space-between;
+  padding: 26px 0 14px; border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; gap: 14px; align-items: flex-start; }
+.dot {
+  width: 16px; height: 16px; margin-top: 8px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 0 5px rgba(52, 211, 153, .18), 0 0 18px rgba(52, 211, 153, .55);
+  flex: none;
+}
+h1 { margin: 0; font-size: 30px; line-height: 1.1; letter-spacing: .02em; }
+.tagline { margin: 6px 0 0; color: var(--muted); max-width: 640px; }
+.meta { display: flex; gap: 10px; flex-wrap: wrap; }
+.meta span {
+  background: var(--chip); border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 12px; font-size: 13px; color: var(--muted); white-space: nowrap;
+}
+.meta b { color: var(--text); font-weight: 600; }
+.model {
+  margin: 16px 0 0; padding: 16px 18px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.model h2 { margin: 0 0 6px; font-size: 16px; }
+.model p { margin: 6px 0; color: var(--muted); }
+.model p b, .model td b { color: var(--text); }
+.model code { color: var(--green); font-size: 13px; }
+.calib { border-collapse: collapse; margin: 10px 0 2px; font-size: 13px; }
+.calib th, .calib td { text-align: left; padding: 5px 16px 5px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+.calib th { color: var(--text); font-weight: 600; }
+.tabs { display: flex; gap: 8px; margin: 18px 0 0; }
+.tabs button {
+  background: var(--panel); color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 18px; font: inherit; font-weight: 600; cursor: pointer;
+}
+.tabs button[aria-pressed="true"] { background: var(--green); color: #06110c; border-color: var(--green); }
+.controls {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;
+  margin: 14px 0 0; padding: 14px 16px; background: var(--panel2); border: 1px solid var(--line); border-radius: var(--radius);
+}
+.controls label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.controls input, .controls select {
+  background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 7px;
+  padding: 8px 10px; font: inherit; font-size: 14px; text-transform: none; letter-spacing: 0; min-width: 150px;
+}
+.controls input:focus, .controls select:focus { outline: 2px solid var(--green); outline-offset: 1px; }
+#clear {
+  background: transparent; color: var(--green); border: 1px solid var(--green); border-radius: 7px;
+  padding: 8px 14px; font: inherit; cursor: pointer;
+}
+.count { color: var(--muted); margin: 14px 2px 8px; font-size: 13px; }
+table.board { width: 100%; border-collapse: collapse; background: var(--panel); border-radius: var(--radius); overflow: hidden; }
+.board th, .board td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+.board th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: var(--panel2); }
+.board tbody tr { cursor: pointer; }
+.board tbody tr:hover, .board tbody tr:focus { background: #152430; outline: none; }
+.board td.num, .board th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.board .name { font-weight: 600; }
+.board .sub { display: block; font-size: 12px; color: var(--faint); font-weight: 400; }
+.pill {
+  display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px;
+  background: var(--chip); color: var(--muted); border: 1px solid var(--line);
+}
+.pill.watch { background: rgba(245, 181, 68, .14); color: var(--amber); border-color: rgba(245, 181, 68, .4); }
+.pill.early { background: rgba(94, 178, 242, .12); color: var(--blue); border-color: rgba(94, 178, 242, .35); }
+.up { color: var(--green); } .down { color: var(--red); } .flat { color: var(--muted); }
+.value { color: var(--amber); font-weight: 700; }
+.detail {
+  margin-top: 18px; padding: 20px 22px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.detail h2 { margin: 0; font-size: 22px; }
+.detail h3 { margin: 20px 0 8px; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.detail .back { background: transparent; border: 1px solid var(--line); color: var(--text); border-radius: 7px; padding: 6px 12px; font: inherit; cursor: pointer; margin-bottom: 12px; }
+.kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 14px 0; }
+.kv div { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+.kv dt { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--faint); }
+.kv dd { margin: 3px 0 0; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.kv dd small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); }
+.steps { margin: 0; padding-left: 22px; }
+.steps li { margin: 9px 0; }
+.steps li::marker { color: var(--green); font-weight: 700; }
+.empty { padding: 34px 20px; text-align: center; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
+.foot { margin-top: 26px; color: var(--faint); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; max-width: 900px; }
+@media (max-width: 760px) {
+  body { padding: 0 12px 30px; }
+  h1 { font-size: 24px; }
+  .board th:nth-child(4), .board td:nth-child(4), .board th:nth-child(6), .board td:nth-child(6) { display: none; }
+}

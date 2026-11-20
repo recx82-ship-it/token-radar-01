@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="brand">
+    <span class="dot" aria-hidden="true"></span>
+    <div>
+      <h1>Token Launch Radar</h1>
+      <p class="tagline">Protocols with no token yet, ranked by what a token would be worth if the record stays as it is.</p>
+    </div>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+
+<section class="model" id="model" aria-label="How the radar scores"></section>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" id="tab-board" data-view="board">Board</button>
+  <button type="button" id="tab-live" data-view="live">Live tokens</button>
+</nav>
+
+<section class="controls" id="controls" aria-label="Filter and sort the board">
+  <label>Search <input type="search" id="q" placeholder="Protocol name or slug" autocomplete="off"></label>
+  <label>Category <select id="category"><option value="">All categories</option></select></label>
+  <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+  <label>Min TVL <select id="mintvl">
+    <option value="0">Any TVL</option>
+    <option value="5000000">$5M+</option>
+    <option value="50000000">$50M+</option>
+    <option value="100000000">$100M+</option>
+    <option value="500000000">$500M+</option>
+  </select></label>
+  <label>Sort by <select id="sort">
+    <option value="value">Implied value</option>
+    <option value="tvl">TVL</option>
+    <option value="growth">7-day growth</option>
+    <option value="age">Age (oldest first)</option>
+    <option value="name">Name A–Z</option>
+  </select></label>
+  <button type="button" id="clear">Clear filters</button>
+</section>
+
+<p class="count" id="count" aria-live="polite"></p>
+
+<main id="board" tabindex="-1"></main>
+
+<section class="detail" id="detail" hidden aria-label="Protocol detail"></section>
+
+<footer class="foot">
+  <p>Implied value is this radar's own claim, from the sealed snapshot's TVL, 7-day growth and time listed — never a prediction that a token will be issued, or when. A protocol that records no token may still have one its DefiLlama record does not carry. Farm plans are a starting point, not financial advice: never pay a fee to claim, and never farm with money you cannot afford to lose.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
